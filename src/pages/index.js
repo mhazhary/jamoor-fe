@@ -21,7 +21,7 @@ const IndexPage = () => (
       />
 
       <h2 className="inline-block p-3 mb-4 text-2xl font-bold bg-yellow-400">
-        Hello there! I'm Hanif.
+        Testing Kumbung Jamur.
       </h2>
 
       <p className="leading-loose">
