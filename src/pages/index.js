@@ -32,10 +32,10 @@ const IndexPage = () => {
           src={catAndHumanIllustration}
         />
         <div className="font-bold bg-yellow-400">
-        <h2 className="inline-block p-3 mb-4 text-2xl ">
-          Testing Kumbung Jamur.
-        </h2>
-        <p>Hardware Status: {hardwareStatus}</p>
+          <h2 className="inline-block p-3 mb-4 text-2xl ">
+            Testing Kumbung Jamur.
+          </h2>
+          <p>Hardware Status: {hardwareStatus}</p>
         </div>
 
         <p className="leading-loose">
