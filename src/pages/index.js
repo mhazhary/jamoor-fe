@@ -35,7 +35,7 @@ const IndexPage = () => {
           <h2 className="inline-block p-3 mb-4 text-2xl ">
             Testing Kumbung Jamur.
           </h2>
-          <p>Hardware Status: {hardwareStatus ? 'ONLINE' : 'OFFLINE'}</p>
+          <p>Hardware Status: {(hardwareStatus==true) ? 'ONLINE' : 'OFFLINE'}</p>
         </div>
 
         <p className="leading-loose">
