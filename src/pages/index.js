@@ -14,7 +14,7 @@ const IndexPage = () => {
     fetch(`https://jamoor.nephertz.dev/api`)
       .then(response => response.text()) // parse JSON from request
       .then(resultData => {
-        sethardwareStatus(resultData ? "ONLINE" : "OFFLINE")
+        sethardwareStatus((resultData === "true") ? "ONLINE" : "OFFLINE")
       }) // set data for hardware status
   }, [])
 
