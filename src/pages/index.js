@@ -12,7 +12,7 @@ const IndexPage = () => {
   useEffect(() => {
     // get data from GitHub api
     fetch(`https://jamoor.nephertz.dev/api`)
-      .then(response => response.text()) // parse JSON from request
+      .then(response => response.json()) // parse JSON from request
       .then(resultData => {
         sethardwareStatus(resultData)
       }) // set data for the number of stars
