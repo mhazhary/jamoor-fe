@@ -12,10 +12,10 @@ const IndexPage = () => {
   useEffect(() => {
     // get data from GitHub api
     fetch(`https://jamoor.nephertz.dev/api`)
-      .then(response => response.json()) // parse JSON from request
+      .then(response => response.text()) // parse JSON from request
       .then(resultData => {
         sethardwareStatus(resultData)
-      }) // set data for the number of stars
+      }) // set data for hardware status
   }, [])
 
   return (
@@ -35,7 +35,7 @@ const IndexPage = () => {
           <h2 className="inline-block p-3 mb-4 text-2xl ">
             Testing Kumbung Jamur.
           </h2>
-          <p>Hardware Status: {hardwareStatus}</p>
+          <p>Hardware Status: {hardwareStatus ? 'ONLINE' : 'OFFLINE'}</p>
         </div>
 
         <p className="leading-loose">
