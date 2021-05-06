@@ -14,7 +14,7 @@ const IndexPage = () => {
     fetch(`https://jamoor.nephertz.dev/api`)
       .then(response => response.text()) // parse JSON from request
       .then(resultData => {
-        sethardwareStatus(resultData)
+        sethardwareStatus(resultData ? "ONLINE" : "OFFLINE")
       }) // set data for hardware status
   }, [])
 
@@ -35,7 +35,7 @@ const IndexPage = () => {
           <h2 className="inline-block p-3 mb-4 text-2xl ">
             Testing Kumbung Jamur.
           </h2>
-          <p>Hardware Status: {(hardwareStatus==true) ? 'ONLINE' : 'OFFLINE'}</p>
+          <p>Hardware Status: {hardwareStatus}</p>
         </div>
 
         <p className="leading-loose">
