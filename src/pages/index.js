@@ -1,23 +1,22 @@
 //import * as React from "react"
 import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+//import { StaticImage } from "gatsby-plugin-image"
 import catAndHumanIllustration from "../images/cat-and-human-illustration.svg"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const IndexPage = () => {
   // Client-side Runtime Data Fetching
-  const [hardwareStatus, sethardwareStatus] = useState(0)
+  const [isHardwareConnected, sethardwareStatus] = useState("Fetching data")
   useEffect(() => {
     // get data from GitHub api
     fetch(`https://jamoor.nephertz.dev/api`, {
       headers: {
-        "Content-Type": "application/json",
         Accept: "application/json",
       },
     })
-      .then(response => response.json()) // parse JSON from request
+      .then(response => response.text()) // parse JSON from request
       .then(resultData => {
         sethardwareStatus((resultData === "true") ? "ONLINE" : "OFFLINE")
       }) // set data for hardware status
@@ -40,7 +39,7 @@ const IndexPage = () => {
           <h2 className="inline-block p-3 mb-4 text-2xl ">
             Testing Kumbung Jamur.
           </h2>
-          <p>Hardware Online: {hardwareStatus}</p>
+          <p>Hardware Online: {isHardwareConnected}</p>
         </div>
 
         <p className="leading-loose">
