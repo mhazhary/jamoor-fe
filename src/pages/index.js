@@ -1,6 +1,6 @@
 //import * as React from "react"
 import React, { useState, useEffect } from "react"
-import { graphql, useStaticQuery, Link } from "gatsby"
+import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import catAndHumanIllustration from "../images/cat-and-human-illustration.svg"
 import Layout from "../components/layout"
@@ -11,8 +11,13 @@ const IndexPage = () => {
   const [hardwareStatus, sethardwareStatus] = useState(0)
   useEffect(() => {
     // get data from GitHub api
-    fetch(`https://jamoor.nephertz.dev/api`)
-      .then(response => response.text()) // parse JSON from request
+    fetch(`https://jamoor.nephertz.dev/api`, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then(response => response.json()) // parse JSON from request
       .then(resultData => {
         sethardwareStatus(resultData)
       }) // set data for the number of stars
@@ -22,7 +27,7 @@ const IndexPage = () => {
     <Layout>
       <Seo
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
-        title="Home"
+        title="Dashboard"
       />
 
       <section className="text-center">
@@ -35,7 +40,7 @@ const IndexPage = () => {
           <h2 className="inline-block p-3 mb-4 text-2xl ">
             Testing Kumbung Jamur.
           </h2>
-          <p>Hardware Status: {hardwareStatus}</p>
+          <p>Hardware Online: {hardwareStatus}</p>
         </div>
 
         <p className="leading-loose">

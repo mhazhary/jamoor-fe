@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Jamoor | Dashboard`,
+    title: `Jamoor`,
     description: `Dashboard frontend for Clam Mushroom House`,
     author: `@nephertz`,
   },
