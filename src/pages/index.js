@@ -78,9 +78,9 @@ const IndexPage = () => {
             Testing Kumbung Jamur.
           </h2>
           <p>Hardware Online: {isHardwareConnected}</p>
-          <p>Humidity: {valV1}C</p>
-          <p>Temperature: {valV2}%</p>
-          <p>Water Tank Temperature: {valV3}C</p>
+          <p>Humidity: {valV1}</p>
+          <p>Temperature: {valV2}</p>
+          <p>Water Tank Temperature: {valV3}</p>
         </div>
 
         <p className="leading-loose">
