@@ -1,8 +1,8 @@
 //import * as React from "react"
 import React, { useState, useEffect } from "react"
-import { Link } from "gatsby"
-//import { StaticImage } from "gatsby-plugin-image"
-import catAndHumanIllustration from "../images/cat-and-human-illustration.svg"
+// import { Link } from "gatsby"
+// import { StaticImage } from "gatsby-plugin-image"
+// import catAndHumanIllustration from "../images/cat-and-human-illustration.svg"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
@@ -10,8 +10,8 @@ const IndexPage = () => {
   // Client-side Runtime Data Fetching
   const [isHardwareConnected, sethardwareStatus] = useState("Fetching data")
   useEffect(() => {
-    // get data from GitHub api
-    fetch(`https://jamoor.nephertz.dev/api`, {
+    // get data from Blynk REST API
+    fetch(`https://jamoor.nephertz.dev/api/isHardwareConnected`, {
       headers: {
         Accept: "application/json",
       },
@@ -20,6 +20,48 @@ const IndexPage = () => {
       .then(resultData => {
         sethardwareStatus((resultData === "true") ? "ONLINE" : "OFFLINE")
       }) // set data for hardware status
+  }, [])
+  // Client-side Runtime Data Fetching
+  const [valV1, setvalV1] = useState("Fetching data")
+  useEffect(() => {
+    // get data from Blynk REST API
+    fetch(`https://jamoor.nephertz.dev/api/get/V1`, {
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then(response => response.json()) // parse JSON from request
+      .then(resultData => {
+        setvalV1(resultData)
+      }) // set data for pin V1
+  }, [])
+  // Client-side Runtime Data Fetching
+  const [valV2, setvalV2] = useState("Fetching data")
+  useEffect(() => {
+    // get data from Blynk REST API
+    fetch(`https://jamoor.nephertz.dev/api/get/V2`, {
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then(response => response.json()) // parse JSON from request
+      .then(resultData => {
+        setvalV2(resultData)
+      }) // set data for pin V2
+  }, [])
+  // Client-side Runtime Data Fetching
+  const [valV3, setvalV3] = useState("Fetching data")
+  useEffect(() => {
+    // get data from Blynk REST API
+    fetch(`https://jamoor.nephertz.dev/api/get/V3`, {
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then(response => response.json()) // parse JSON from request
+      .then(resultData => {
+        setvalV3(resultData)
+      }) // set data for pin V3
   }, [])
 
   return (
@@ -30,20 +72,18 @@ const IndexPage = () => {
       />
 
       <section className="text-center">
-        <img
-          alt="Cat and human sitting on a couch"
-          className="block w-1/2 mx-auto mb-8"
-          src={catAndHumanIllustration}
-        />
         <div className="font-bold bg-yellow-400">
           <h2 className="inline-block p-3 mb-4 text-2xl ">
             Testing Kumbung Jamur.
           </h2>
           <p>Hardware Online: {isHardwareConnected}</p>
+          <p>Humidity: {valV1}</p>
+          <p>Temperature: {valV2}</p>
+          <p>Water Tank Temperature: {valV3}</p>
         </div>
 
         <p className="leading-loose">
-          This is a barebones starter for Gatsby styled using{` `}
+          Developed using Gatsby and styled using{` `}
           <a
             className="font-bold text-gray-900 no-underline"
             href="https://tailwindcss.com/"
@@ -55,10 +95,6 @@ const IndexPage = () => {
           , a utility-first CSS framework.
         </p>
       </section>
-      <p>
-        <Link to="/page-2/">Go to page 2</Link> <br />
-        <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-      </p>
     </Layout>
   )
 }
