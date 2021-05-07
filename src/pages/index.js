@@ -27,12 +27,13 @@ const IndexPage = () => {
     // get data from Blynk REST API
     fetch(`https://jamoor.nephertz.dev/api/get/V1`, {
       headers: {
+        "Content-Type": "application/json",
         Accept: "application/json",
       },
     })
       .then(response => response.json()) // parse JSON from request
       .then(resultData => {
-        setvalV1(resultData)
+        setvalV1(resultData + "°C")
       }) // set data for pin V1
   }, [])
   // Client-side Runtime Data Fetching
@@ -46,7 +47,7 @@ const IndexPage = () => {
     })
       .then(response => response.json()) // parse JSON from request
       .then(resultData => {
-        setvalV2(resultData)
+        setvalV2(resultData + "%")
       }) // set data for pin V2
   }, [])
   // Client-side Runtime Data Fetching
@@ -60,7 +61,7 @@ const IndexPage = () => {
     })
       .then(response => response.json()) // parse JSON from request
       .then(resultData => {
-        setvalV3(resultData)
+        setvalV3(resultData + "°C")
       }) // set data for pin V3
   }, [])
 
@@ -77,9 +78,9 @@ const IndexPage = () => {
             Testing Kumbung Jamur.
           </h2>
           <p>Hardware Online: {isHardwareConnected}</p>
-          <p>Humidity: {valV1}</p>
-          <p>Temperature: {valV2}</p>
-          <p>Water Tank Temperature: {valV3}</p>
+          <p>Humidity: {valV1}C</p>
+          <p>Temperature: {valV2}%</p>
+          <p>Water Tank Temperature: {valV3}C</p>
         </div>
 
         <p className="leading-loose">
