@@ -33,7 +33,7 @@ const IndexPage = () => {
     })
       .then(response => response.json()) // parse JSON from request
       .then(resultData => {
-        setvalV1(resultData + "°C")
+        setvalV1(resultData + "%")
       }) // set data for pin V1
   }, [])
   // Client-side Runtime Data Fetching
@@ -47,7 +47,7 @@ const IndexPage = () => {
     })
       .then(response => response.json()) // parse JSON from request
       .then(resultData => {
-        setvalV2(resultData + "%")
+        setvalV2(resultData + "°C")
       }) // set data for pin V2
   }, [])
   // Client-side Runtime Data Fetching
