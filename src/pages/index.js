@@ -27,7 +27,6 @@ const IndexPage = () => {
     // get data from Blynk REST API
     fetch(`https://middleware.nephertz.dev/get/V1`, {
       headers: {
-        "Content-Type": "application/json",
         Accept: "application/json",
       },
     })
