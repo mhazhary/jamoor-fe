@@ -11,7 +11,7 @@ const IndexPage = () => {
   const [isHardwareConnected, sethardwareStatus] = useState("Fetching data")
   useEffect(() => {
     // get data from Blynk REST API
-    fetch(`https://jamoor.nephertz.dev/api/isHardwareConnected`, {
+    fetch(`https://middleware.nephertz.dev/isHardwareConnected`, {
       headers: {
         Accept: "application/json",
       },
@@ -25,7 +25,7 @@ const IndexPage = () => {
   const [valV1, setvalV1] = useState("Fetching data")
   useEffect(() => {
     // get data from Blynk REST API
-    fetch(`https://jamoor.nephertz.dev/api/get/V1`, {
+    fetch(`https://middleware.nephertz.dev/get/V1`, {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
@@ -40,7 +40,7 @@ const IndexPage = () => {
   const [valV2, setvalV2] = useState("Fetching data")
   useEffect(() => {
     // get data from Blynk REST API
-    fetch(`https://jamoor.nephertz.dev/api/get/V2`, {
+    fetch(`https://middleware.nephertz.dev/get/V2`, {
       headers: {
         Accept: "application/json",
       },
@@ -54,7 +54,7 @@ const IndexPage = () => {
   const [valV3, setvalV3] = useState("Fetching data")
   useEffect(() => {
     // get data from Blynk REST API
-    fetch(`https://jamoor.nephertz.dev/api/get/V3`, {
+    fetch(`https://middleware.nephertz.dev/get/V3`, {
       headers: {
         Accept: "application/json",
       },
