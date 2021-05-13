@@ -15,6 +15,7 @@ const IndexPage = () => {
       headers: {
         Accept: "application/json",
       },
+      credentials: 'include',
     })
       .then(response => response.text()) // parse JSON from request
       .then(resultData => {
@@ -29,6 +30,7 @@ const IndexPage = () => {
       headers: {
         Accept: "application/json",
       },
+      credentials: 'include',
     })
       .then(response => response.json()) // parse JSON from request
       .then(resultData => {
@@ -43,6 +45,7 @@ const IndexPage = () => {
       headers: {
         Accept: "application/json",
       },
+      credentials: 'include',
     })
       .then(response => response.json()) // parse JSON from request
       .then(resultData => {
@@ -57,6 +60,7 @@ const IndexPage = () => {
       headers: {
         Accept: "application/json",
       },
+      credentials: 'include',
     })
       .then(response => response.json()) // parse JSON from request
       .then(resultData => {
