@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react"
 // import catAndHumanIllustration from "../images/cat-and-human-illustration.svg"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Chart from "react-apexcharts"
 
 const IndexPage = () => {
   // Client-side Runtime Data Fetching
@@ -15,11 +16,11 @@ const IndexPage = () => {
       headers: {
         Accept: "application/json",
       },
-      credentials: 'include',
+      credentials: "include",
     })
       .then(response => response.text()) // parse JSON from request
       .then(resultData => {
-        sethardwareStatus((resultData === "true") ? "ONLINE" : "OFFLINE")
+        sethardwareStatus(resultData === "true" ? "ONLINE" : "OFFLINE")
       }) // set data for hardware status
   }, [])
   // Client-side Runtime Data Fetching
@@ -30,7 +31,7 @@ const IndexPage = () => {
       headers: {
         Accept: "application/json",
       },
-      credentials: 'include',
+      credentials: "include",
     })
       .then(response => response.json()) // parse JSON from request
       .then(resultData => {
@@ -45,7 +46,7 @@ const IndexPage = () => {
       headers: {
         Accept: "application/json",
       },
-      credentials: 'include',
+      credentials: "include",
     })
       .then(response => response.json()) // parse JSON from request
       .then(resultData => {
@@ -60,13 +61,29 @@ const IndexPage = () => {
       headers: {
         Accept: "application/json",
       },
-      credentials: 'include',
+      credentials: "include",
     })
       .then(response => response.json()) // parse JSON from request
       .then(resultData => {
         setvalV3(resultData + "°C")
       }) // set data for pin V3
   }, [])
+  let graphVal = {
+    options: {
+      chart: {
+        id: "basic-bar",
+      },
+      xaxis: {
+        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999],
+      },
+    },
+    series: [
+      {
+        name: "series-1",
+        data: [30, 40, 45, 50, 49, 60, 70, 91],
+      },
+    ],
+  }
 
   return (
     <Layout>
@@ -74,7 +91,12 @@ const IndexPage = () => {
         keywords={[`gatsby`, `tailwind`, `react`, `tailwindcss`]}
         title="Dashboard"
       />
-
+      <Chart
+        options={graphVal.options}
+        series={graphVal.series}
+        type="bar"
+        width="500"
+      />
       <section className="text-center">
         <div className="font-bold bg-yellow-400">
           <h2 className="inline-block p-3 mb-4 text-2xl ">
